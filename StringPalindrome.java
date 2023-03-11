@@ -8,9 +8,7 @@ public class StringPalindrome {
     if (size <= 1) {
       return true;
     }
-    char firstChar = tmp.charAt(0);
-    char lastChar = tmp.charAt(size - 1);
-    if (firstChar != lastChar) {
+    if (tmp.charAt(0) != tmp.charAt(size - 1)) {
         return false;
     }
     String substring = tmp.substring(1, size - 1);
