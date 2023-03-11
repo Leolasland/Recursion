@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public class StringPalindrome {
 
   public static boolean isPalindrome(String s) {
