@@ -3,17 +3,14 @@ import java.util.List;
 
 public class PrintEvenIndex {
 
-  public static void printEvenIndex(List<Integer> list) {
-    if (list.isEmpty()) {
+  public static void printEvenIndex(List<Integer> list, int indexCount) {
+    if (list.isEmpty() || indexCount >= list.size()) {
       return;
     }
-    ArrayList<Integer> copy = new ArrayList<>(list);
-    System.out.println(copy.get(0));
-    if (copy.size() > 1) {
-      copy.remove(1);
+    if (indexCount % 2 == 0) {
+      System.out.println(list.get(indexCount));
     }
-    copy.remove(0);
-    printEvenIndex(copy);
+    printEvenIndex(list, ++indexCount);
   }
 
   public static void main(String[] args) {
@@ -21,6 +18,6 @@ public class PrintEvenIndex {
     for (int i = 0; i < 10; i++) {
       list.add(i);
     }
-    printEvenIndex(list);
+    printEvenIndex(list, 0);
   }
 }
