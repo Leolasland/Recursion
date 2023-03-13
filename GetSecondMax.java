@@ -10,7 +10,7 @@ public class GetSecondMax {
   public static int secondMax(int[] array, int max1, int max2, int i) {
     if (i < array.length) {
       if (max1 < array[i]) {
-        max2 = secondMax(array, array[i], max2, ++i);
+        max2 = secondMax(array, array[i], max1, ++i);
       } else if (max2 < array[i]) {
         max2 = secondMax(array, max1, array[i], ++i);
       } else {
