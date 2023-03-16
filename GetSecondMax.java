@@ -1,17 +1,20 @@
 public class GetSecondMax {
 
-  public static Integer getSecondMax(int[] array) {
+  public static int getSecondMax(int[] array) {
     if (array.length < 2) {
-      return null;
+      return 0;
     }
-    return secondMax(array, array[0], null, 1);
+    if (array[0] > array[1]) {
+        return secondMax(array, array[0], array[1], 1);
+    }
+    return secondMax(array, array[1], array[0], 1);
   }
 
-  public static int secondMax(int[] array, Integer max1, Integer max2, int i) {
+  public static int secondMax(int[] array, int max1, int max2, int i) {
     if (i < array.length) {
       if (max1 < array[i]) {
         max2 = secondMax(array, array[i], max1, ++i);
-      } else if (max2 == null || max2 < array[i]) {
+      } else if (max2 < array[i]) {
         max2 = secondMax(array, max1, array[i], ++i);
       } else {
         max2 = secondMax(array, max1, max2, ++i);
