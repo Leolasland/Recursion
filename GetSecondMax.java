@@ -11,16 +11,16 @@ public class GetSecondMax {
   }
 
   public static int secondMax(int[] array, int max1, int max2, int i) {
-    if (i < array.length) {
-      if (max1 < array[i]) {
-        max2 = secondMax(array, array[i], max1, ++i);
-      } else if (max2 < array[i]) {
-        max2 = secondMax(array, max1, array[i], ++i);
-      } else {
-        max2 = secondMax(array, max1, max2, ++i);
-      }
+	  if (i == array.length) {
+	    return max2;
+	  }
+    if (max1 < array[i]) {
+      max2 = max1;
+      max1 = array[i];
+    } else if (max2 < array[i]) {
+      max2 = array[i];
     }
-    return max2;
+    return secondMax(array, max1, max2, ++i);
   }
 
   public static void main(String[] args) {
